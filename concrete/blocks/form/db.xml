@@ -1,0 +1,150 @@
+<?xml version="1.0"?>
+<schema version="0.3">
+	
+	<table name="btForm">
+		<field name="bID" type="I">
+			<key />
+			<unsigned />
+		</field>
+		<field name="questionSetId" type="I">
+			<unsigned />
+			<default value="0" />
+		</field>
+		<field name="surveyName" type="C" size="255">
+		</field> 
+		<field name="thankyouMsg" type="X" >
+		</field> 
+		<index name="questionSetIdForeign">
+			<col>questionSetId</col>
+		</index>
+		<field name="notifyMeOnSubmission" type="I1">
+			<unsigned />
+			<notnull />
+			<default value="0" />
+		</field>
+		<field name="recipientEmail" type="C" size="255">
+		</field>		
+		<field name="displayCaptcha" type="i">
+			<default value="1"/>
+		</field>
+		<field name="redirectCID" type="i">
+			<default value="0"/>
+		</field>      		
+		<field name="addFilesToSet" type="i">
+			<default value="0" />
+		</field>
+	</table>
+	
+	<table name="btformquestions">
+    <field name="qID" type="I" size="10">
+      <KEY/>
+      <AUTOINCREMENT/>
+      <UNSIGNED/>
+    </field>
+    <field name="msqID" type="I" size="10">
+      <DEFAULT value="0"/>
+      <UNSIGNED/>
+    </field>
+    <field name="bID" type="I" size="10">
+      <DEFAULT value="0"/>
+      <UNSIGNED/>
+    </field>
+    <field name="questionSetId" type="I" size="10">
+      <DEFAULT value="0"/>
+      <UNSIGNED/>
+    </field>
+    <field name="question" type="C" size="255"/>
+    <field name="Lpl" type="X"/>
+    <field name="Lnl" type="X"/>
+    <field name="Les" type="X"/>
+    <field name="inputType" type="C" size="255"/>
+    <field name="options" type="X"/>
+    <field name="optionsLpl" type="X"/>
+    <field name="optionsLnl" type="X"/>
+    <field name="optionsLes" type="X"/>
+    <field name="Lregex" type="C" size="255"/>
+    <field name="position" type="I" size="10">
+      <DEFAULT value="1000"/>
+      <UNSIGNED/>
+    </field>
+    <field name="max_pending_delete" type="I" size="10"/>
+    <field name="width" type="I" size="10">
+      <DEFAULT value="50"/>
+      <UNSIGNED/>
+    </field>
+    <field name="height" type="I" size="10">
+      <DEFAULT value="3"/>
+      <UNSIGNED/>
+    </field>
+    <field name="required" type="I" size="11">
+      <DEFAULT value="0"/>
+    </field>
+    <field name="Lmax" type="N"/>
+    <field name="Lmin" type="N"/>
+    <field name="LminL" type="N">
+      <DEFAULT value="0"/>
+    </field>
+    <field name="LmaxL" type="N">
+      <DEFAULT value="100"/>
+    </field>
+    <index name="questionSetId">
+      <col>questionSetId</col>
+    </index>
+    <index name="msqID">
+      <col>msqID</col>
+    </index>
+  </table>
+  <table name="btgooglemap">
+    <field name="bID" type="I" size="10">
+      <KEY/>
+      <UNSIGNED/>
+    </field>
+    <field name="title" type="C" size="255"/>
+    <field name="location" type="C" size="255"/>
+    <field name="latitude" type="N"/>
+    <field name="longitude" type="N"/>
+    <field name="zoom" type="I" size="8"/>
+  </table>
+	
+	<table name="btFormAnswerSet">
+		<field name="asID" type="I">
+			<key />
+			<autoincrement />
+			<unsigned />
+		</field>
+		<field name="questionSetId" type="I">
+			<unsigned />
+			<default value="0" />
+		</field>
+		<field name="created" type="T">
+			<deftimestamp />
+		</field>
+		<field name="uID" type="I">
+			<unsigned />
+			<default value="0" />
+		</field>
+		<index name="questionSetId">
+			<col>questionSetId</col>
+		</index>
+	</table>
+	
+	<table name="btFormAnswers">
+		<field name="aID" type="I">
+			<key />
+			<autoincrement />
+			<unsigned />
+		</field>
+		<field name="asID" type="I">
+			<unsigned />
+			<default value="0" />
+		</field>
+		<field name="msqID" type="I">
+			<unsigned />
+			<default value="0" />
+		</field>
+		<field name="answer" type="C" size="255">
+		</field>
+		<field name="answerLong" type="X">
+		</field>
+	</table>
+</schema>
